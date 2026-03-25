@@ -1,0 +1,164 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Dark theme professional portfolio colors */
+    --background: 220 26% 7%;
+    --foreground: 210 20% 95%;
+
+    --card: 220 26% 9%;
+    --card-foreground: 210 20% 95%;
+
+    --popover: 220 26% 9%;
+    --popover-foreground: 210 20% 95%;
+
+    --primary: 265 89% 66%;
+    --primary-foreground: 210 20% 95%;
+
+    --secondary: 220 26% 12%;
+    --secondary-foreground: 210 20% 95%;
+
+    --muted: 220 26% 12%;
+    --muted-foreground: 220 14% 65%;
+
+    --accent: 265 89% 66%;
+    --accent-foreground: 220 26% 7%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 20% 95%;
+
+    --border: 220 26% 15%;
+    --input: 220 26% 15%;
+    --ring: 265 89% 66%;
+
+    --radius: 0.75rem;
+
+    /* Portfolio specific colors */
+    --gradient-primary: linear-gradient(135deg, hsl(265 89% 66%), hsl(280 100% 70%));
+    --gradient-secondary: linear-gradient(135deg, hsl(220 26% 12%), hsl(220 26% 15%));
+    --gradient-hero: linear-gradient(135deg, hsl(220 26% 7%) 0%, hsl(220 26% 9%) 50%, hsl(265 89% 66% / 0.1) 100%);
+    
+    /* Glass effect */
+    --glass-bg: hsla(220, 26%, 12%, 0.8);
+    --glass-border: hsla(265, 89%, 66%, 0.2);
+
+    /* Shadows */
+    --shadow-primary: 0 20px 50px -12px hsl(265 89% 66% / 0.25);
+    --shadow-card: 0 10px 30px -10px hsl(220 26% 7% / 0.3);
+    --shadow-glow: 0 0 40px hsl(265 89% 66% / 0.3);
+
+    /* Animations */
+    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-spring: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+    --sidebar-background: 220 26% 9%;
+    --sidebar-foreground: 210 20% 95%;
+    --sidebar-primary: 265 89% 66%;
+    --sidebar-primary-foreground: 210 20% 95%;
+    --sidebar-accent: 220 26% 12%;
+    --sidebar-accent-foreground: 210 20% 95%;
+    --sidebar-border: 220 26% 15%;
+    --sidebar-ring: 265 89% 66%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-mono;
+    cursor: none;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--background));
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--primary));
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--accent));
+  }
+}
+
+@layer components {
+  /* Glass card effect */
+  .glass-card {
+    @apply bg-[var(--glass-bg)] border border-[var(--glass-border)] backdrop-blur-xl;
+  }
+
+  /* Gradient text */
+  .gradient-text {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Hover effects */
+  .hover-glow {
+    transition: var(--transition-smooth);
+  }
+
+  .hover-glow:hover {
+    box-shadow: var(--shadow-glow);
+    transform: translateY(-2px);
+  }
+
+  /* Custom cursor */
+  .cursor-dot {
+    width: 8px;
+    height: 8px;
+    background: hsl(var(--primary));
+    border-radius: 50%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 9999;
+    transition: transform 0.1s ease;
+  }
+
+  .cursor-outline {
+    width: 40px;
+    height: 40px;
+    border: 2px solid hsl(var(--primary) / 0.5);
+    border-radius: 50%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 9998;
+    transition: all 0.15s ease;
+  }
+
+  /* Section spacing */
+  .section-padding {
+    @apply py-20 lg:py-32;
+  }
+
+  /* Container */
+  .container-custom {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+}
