@@ -95,7 +95,26 @@ const Hero = () => {
             </div>
 
             <div className="flex flex-wrap gap-4 pt-8">
-              {['React', 'React Native', 'Node.js', 'MongoDB', 'Express', 'TypeScript', 'Tailwind CSS'].map((tech) => (
+              {[
+                'React',
+                'React Native',
+                'Next.js',
+                'TypeScript',
+                'JavaScript (ES6+)',
+                'Tailwind CSS',
+                'Zustand',
+                'DaisyUI',
+                'Shadcn UI',
+                'Node.js',
+                'Express',
+                'MongoDB',
+                'SQL',
+                'PostgreSQL',
+                'REST APIs',
+                'JWT Auth',
+                'Socket.io',
+                'Docker (Basics)'
+              ].map((tech) => (
                 <div
                   key={tech}
                   className="glass-card px-4 py-2 rounded-lg text-sm font-medium hover-glow"
